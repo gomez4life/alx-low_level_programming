@@ -1,23 +1,24 @@
 #include "lists.h"
 
 /**
- * print_list - print all elements of linked list
- * @h: pointer to a nodal struct
- *
- * Return: number of nodes in list
+ * print_list - prints list.
+ * @h: param list
+ * Return: struct
  */
+
 size_t print_list(const list_t *h)
 {
-	unsigned int i = 0;
+	size_t l_node;
 
-	while (h)
+	l_node = 0;
+	while (h != NULL)
 	{
-		if (h->str)
-			printf("[%d] %s\n", h->len, h->str);
-		else
+		if (h->str == NULL)
 			printf("[%d] %s\n", 0, "(nil)");
+		else
+			printf("[%d] %s\n", h->len, h->str);
 		h = h->next;
-		i++;
+		l_node++;
 	}
-	return (i);
+	return (l_node);
 }
